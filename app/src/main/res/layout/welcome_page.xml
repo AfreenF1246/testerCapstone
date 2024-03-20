@@ -64,13 +64,17 @@
             android:text= "
 1. Set the device on a flat surface \n
 2. Open up the app to the Recording Page \n
-3. Press the button that says Record Heartrate \n
-4. Place one finger on the heart sensor making \t \t \t \t  direct contact with the green light \n
-5. Wait until the LCD display shows a number, this \t \t will be your recorded heartrate \n
-6. On the Recording Page, press the button that \t \t \t \t says Record Blood Oxygen Level \n
-7. Place one finger on the pulse oximeter \n
-8. Again, wait until the LCD display shows a \t \t \t \t \t \t \t number, this will be your recorded blood oxygen
-\t \t level \n
+3. Place one finger on the heart sensor making
+\t \t \t \t  direct contact with the green light \n
+4. Press the button that says Record Heartrate \n
+5. Wait until the LCD display shows a number.
+\t \t \t \t \t This will be your recorded heartrate \n
+6. Place one finger on the pulse oximeter \n
+7. On the Recording Page, press the button that
+\t \t \t \t says Record Blood Oxygen Level \n
+8. Again, wait until the LCD display shows a
+\t \t \t \t \t \t \t number. This will be your recorded blood
+\t \t \t \t \t \t \t oxygen level \n
 9. Within 10 minutes, you can access your stress \t \t \t level results through the metrics page"
             android:textColor="@color/black"
             android:textSize="13sp"/>
