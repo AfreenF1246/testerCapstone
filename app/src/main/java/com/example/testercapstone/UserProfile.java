@@ -25,5 +25,6 @@ import android.widget.Toast;
 
 public class UserProfile extends AppCompatActivity{
     EditText fname, lname, dob, sex, email, phoneNumber, username,
-            password, bloodPressure, heartRate,
+            password, bloodPressure, heartRate, stressLevel;
+
 }
