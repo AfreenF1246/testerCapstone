@@ -55,32 +55,34 @@
 
 
         <TextView
-            android:id="@+id/links"
+            android:id="@+id/link1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="140dp"
             android:text= "https://www.cdc.gov/violenceprevention/about/copingwith-stresstips.html"
+            android:drawablePadding="10dp"
             android:textColor="@color/blue"
             android:textSize="13sp"
             android:drawableStart="@drawable/baseline_library_books_24" />
 
 
         <TextView
-            android:id="@+id/links"
+            android:id="@+id/link2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="180dp"
             android:text= "https://www.webmd.com/balance/stress-management/stress-management"
+            android:drawablePadding="10dp"
             android:textColor="@color/blue"
             android:drawableStart="@drawable/baseline_library_books_24"
             android:textSize="13sp"/>
 
         <TextView
-            android:id="@+id/links"
+            android:id="@+id/link3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
@@ -89,10 +91,11 @@
             android:text= "https://www.helpguide.org/articles/stress/stress-management.htm"
             android:textColor="@color/blue"
             android:drawableStart="@drawable/baseline_library_books_24"
+            android:drawablePadding="10dp"
             android:textSize="13sp"/>
 
         <TextView
-            android:id="@+id/links"
+            android:id="@+id/link4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
@@ -101,10 +104,11 @@
             android:text= "https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/5-tips-to-manage-stress"
             android:textColor="@color/blue"
             android:drawableStart="@drawable/baseline_library_books_24"
+            android:drawablePadding="10dp"
             android:textSize="13sp"/>
 
         <TextView
-            android:id="@+id/links"
+            android:id="@+id/link5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
@@ -113,6 +117,7 @@
             android:text= "https://www.sutterhealth.org/health/mind-body/10-simple-ways-to-cope-with-stress"
             android:textColor="@color/blue"
             android:drawableStart="@drawable/baseline_library_books_24"
+            android:drawablePadding="10dp"
             android:textSize="13sp"/>
         <!---
                 <TextView
@@ -164,7 +169,7 @@ Sometimes a conversation is all you need!"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/talk"
+            android:id="@+id/talkLink1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
@@ -173,10 +178,11 @@ Sometimes a conversation is all you need!"
             android:text="https://www.psychologytoday.com/us/basics/therapy"
             android:textColor="@color/blue"
             android:textSize="13sp"
+            android:drawablePadding="10dp"
             android:drawableStart="@drawable/baseline_edit_square_24" />
 
         <TextView
-            android:id="@+id/talk"
+            android:id="@+id/talkLink2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
@@ -185,6 +191,7 @@ Sometimes a conversation is all you need!"
             android:text="https://www.goodtherapy.org/"
             android:textColor="@color/blue"
             android:textSize="13sp"
+            android:drawablePadding="10dp"
             android:drawableStart="@drawable/baseline_person_search_24" />
 
     </androidx.cardview.widget.CardView>
