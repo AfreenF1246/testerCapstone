@@ -48,7 +48,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="100dp"
-            android:text="Blah"
+            android:text="Instructions"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -61,17 +61,17 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="140dp"
-            android:text= "https://www.cdc.gov/violenceprevention/about/copingwith-stresstips.html"
+            android:text= "
+Place your finger on the heartrate monitor and click the record heartrate button. Wait until you see a value on the LCD display before placing your finger on the blood oxgen monitor and clicking the blood oxygen level button. \n \n
+Detailed instructions can be found on the welcome page. "
             android:drawablePadding="10dp"
             android:textColor="@color/black"
-            android:textSize="13sp"
-            android:drawableStart="@drawable/baseline_library_books_24" />
-
+            android:textSize="13sp" />
         <Button
             android:id="@+id/heartrateButton"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:layout_marginTop="290dp"
+            android:layout_marginTop="350dp"
             android:backgroundTint="@color/maroon"
             android:text="Record Heartrate"
             android:layout_marginRight="50dp"
