@@ -60,15 +60,20 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="140dp"
+            android:lineSpacingExtra="6dp"
             android:text= "
-1. Set the device on a flat surface \n \n
-2. Place one finger on the heart sensor making direct contact with the green light \n \n
-3. Wait until the LCD display shows a number, this will be your recorded heartrate \n \n
-4. Place one finger on the pulse oximeter \n \n
-5. Again, wait until the LCD display shows a number, this will be your recorded blood oxygen level \n \n
-6. Within 10 minutes, you can access your stress level results through the metrics page on this app"
+1. Set the device on a flat surface \n
+2. Open up the app to the Recording Page \n
+3. Press the button that says Record Heartrate \n
+4. Place one finger on the heart sensor making \t \t \t \t  direct contact with the green light \n
+5. Wait until the LCD display shows a number, this \t \t will be your recorded heartrate \n
+6. On the Recording Page, press the button that \t \t \t \t says Record Blood Oxygen Level \n
+7. Place one finger on the pulse oximeter \n
+8. Again, wait until the LCD display shows a \t \t \t \t \t \t \t number, this will be your recorded blood oxygen
+\t \t level \n
+9. Within 10 minutes, you can access your stress \t \t \t level results through the metrics page"
             android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:textSize="13sp"/>
 
         <TextView
             android:id="@+id/note"
@@ -76,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="460dp"
             android:text="Note: This may be changed as we develop the hardware further"
             android:textColor="@color/black"
             android:textSize="15sp"/>
