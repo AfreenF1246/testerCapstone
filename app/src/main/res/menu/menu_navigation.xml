@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/welcome"
+        android:title="Welcome"
+        android:icon="@drawable/baseline_person_24"/>
+
+    <item
+        android:id="@+id/userProfile"
+        android:title="User Profile"
+        android:icon="@drawable/baseline_person_24"/>
+
+    <item
+        android:id="@+id/recordingPage"
+        android:title="Recording Page"
+        android:icon="@drawable/baseline_person_24"/>
+
+    <item
+        android:id="@+id/metrics"
+        android:title="Metrics Page"
+        android:icon="@drawable/baseline_person_24"/>
+
+    <item
+        android:id="@+id/resourcesPage"
+        android:title="Resources Page"
+        android:icon="@drawable/baseline_person_24"/>
+
+</menu>

@@ -11,7 +11,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="687dp"
+        android:layout_height="640dp"
         android:layout_margin="30dp"
         android:gravity="center"
         app:cardElevation="20dp">
@@ -80,6 +80,7 @@
             android:textSize="15sp" />
 
 
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -87,9 +88,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"/>
-
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -11,15 +11,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="640dp"
         android:layout_margin="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="16dp"
         android:gravity="center"
         app:cardElevation="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -45,9 +42,9 @@
             android:id="@+id/instructionsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="180dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="100dp"
+            android:layout_marginRight="180dp"
             android:text="Instructions"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -57,11 +54,11 @@
             android:id="@+id/instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="140dp"
+            android:layout_marginRight="30dp"
             android:lineSpacingExtra="6dp"
-            android:text= "
+            android:text="
 1. Set the device on a flat surface \n
 2. Open up the app to the Recording Page \n
 3. Place one finger on the heart sensor making
@@ -77,26 +74,26 @@
 \t \t \t \t \t \t \t oxygen level \n
 9. Within 10 minutes, you can access your stress \t \t \t level results through the metrics page"
             android:textColor="@color/black"
-            android:textSize="13sp"/>
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="460dp"
+            android:layout_marginRight="30dp"
             android:text="Note: This may be changed as we develop the hardware further"
             android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/faqsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="180dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="500dp"
+            android:layout_marginRight="180dp"
             android:text="FAQs"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -106,13 +103,31 @@
             android:id="@+id/faqs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="540dp"
+            android:layout_marginRight="30dp"
             android:text="Note: This will be completed as we test the device."
             android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
     </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            app:itemBackground="@color/purple"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            app:menu="@menu/menu_navigation" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
