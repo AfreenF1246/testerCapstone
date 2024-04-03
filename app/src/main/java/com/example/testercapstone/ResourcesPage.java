@@ -28,7 +28,7 @@ public class ResourcesPage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.welcome)
                 {
-                    startActivity(new Intent(getApplicationContext(),UserProfile.class));
+                    startActivity(new Intent(getApplicationContext(), WelcomePage.class));
                     overridePendingTransition(0,0);
                     return true;
                 }
@@ -40,13 +40,13 @@ public class ResourcesPage extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.recordingPage)
                 {
-                    startActivity(new Intent(getApplicationContext(),UserProfile.class));
+                    startActivity(new Intent(getApplicationContext(),RecordingPage.class));
                     overridePendingTransition(0,0);
                     return true;
                 }
                 else if(item.getItemId() == R.id.metrics)
                 {
-                    startActivity(new Intent(getApplicationContext(),UserProfile.class));
+                    startActivity(new Intent(getApplicationContext(),metrics.class));
                     overridePendingTransition(0,0);
                     return true;
                 }
