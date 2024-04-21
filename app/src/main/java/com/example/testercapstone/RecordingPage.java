@@ -2,6 +2,7 @@ package com.example.testercapstone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ActivityChooserView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,5 +58,12 @@ public class RecordingPage extends AppCompatActivity {
                 return false;
             }
         });
+
+
+       // NotificationFrame notificationFrame = new NotificationFrame(this);
+        //notificationFrame.notif(true,false);
+        PopUpNotif popUpNotif = new PopUpNotif(this);
+        popUpNotif.popUp(true,false);
+
     }
 }
