@@ -3,6 +3,7 @@
 
     <item
         android:id="@+id/welcome"
+        android:height="20dp"
         android:title="Welcome"
         android:icon="@drawable/baseline_person_24"/>
 
