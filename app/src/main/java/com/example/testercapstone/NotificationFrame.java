@@ -2,8 +2,8 @@ package com.example.testercapstone;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
+//import androidx.core.app.NotificationCompat;
+//import androidx.core.app.NotificationManagerCompat;
 import java.util.Random;
 public class NotificationFrame {
     private Context mContext;
@@ -15,7 +15,7 @@ public class NotificationFrame {
     public NotificationFrame(Context context) {
         mContext = context;
     }
-
+/**
     public void notif(Boolean heartRate, Boolean bloodOxy){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "channel_id");
         builder.setSmallIcon(R.drawable.baseline_notifications_active_24);
@@ -38,6 +38,6 @@ public class NotificationFrame {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(mContext);
         //notificationManager.notify(0, builder.build());
-    }
+    } **/
 
 }

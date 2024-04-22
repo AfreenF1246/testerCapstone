@@ -34,70 +34,73 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/lastRecordingText"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/day"
+            android:layout_width="228dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="100dp"
-            android:text="Your Last Recording"
+            android:layout_marginTop="110dp"
+            android:layout_marginRight="80dp"
+            android:hint="Day (options: enter a previous day, or enter &quot;new&quot; for a new recording)"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
 
-
-        <TextView
-            android:id="@+id/avgtest1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="200dp"
-            android:text="Average Test1 Results"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/graph1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="250dp"
-            android:text="Graphical Representation"
-            android:textColor="@color/black"
+        <Button
+            android:id="@+id/goButton"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="105dp"
+            android:backgroundTint="@color/purple"
+            android:text="Go"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            app:cornerRadius="20dp" />
+
 
 
         <TextView
-            android:id="@+id/avgtest2"
+            android:id="@+id/heartRateTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="170dp"
+            android:text="Heart Rate Graph"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/heartRateGraph"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="200dp"
+            android:layout_alignParentTop="true"/>
+
+
+
+        <TextView
+            android:id="@+id/bloodOxygenTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="400dp"
-            android:text="Average Test2 Results"
+            android:text="Blood Oxygen Graph"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
 
 
 
-        <TextView
-            android:id="@+id/graph2"
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/bloodOxygenGraph"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="450dp"
-            android:text="Graphical Representation"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="440dp"
+            android:layout_alignParentTop="true"/>
 
 
 
