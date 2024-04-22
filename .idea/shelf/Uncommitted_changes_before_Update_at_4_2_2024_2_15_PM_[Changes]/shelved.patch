@@ -1,0 +1,15 @@
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	
++++ b/app/src/main/res/values/strings.xml	
+@@ -43,4 +43,5 @@
+         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+     </string>
++    <string name="title_activity_main2">MainActivity2</string>
+ </resources>
+\ No newline at end of file
