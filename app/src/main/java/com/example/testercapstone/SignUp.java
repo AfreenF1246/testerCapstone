@@ -55,6 +55,7 @@ public class SignUp extends AppCompatActivity {
                     String uniqueFileName = generateUniqueFileName(userUsername); // You need to implement this method
                     String userData = userFirstName + "," + userLastName + "," + userDOB + "," + userEmail + "," + userSex + "," + userPhoneNumber + "," + userUsername + "," + userPassword + "\n";
                     CSVFileManager.writeUserDataToCSV(getApplicationContext(), uniqueFileName, userData);
+                    Username.getInstance().setSharedVariable(userUsername);
 
                     Intent intent = new Intent(getApplicationContext(), WelcomePage.class);
                     startActivity(intent);

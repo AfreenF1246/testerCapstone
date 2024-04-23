@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                 boolean isUserValid = checkUserCredentials(user, pass);
                 if (isUserValid) {
+                    Username.getInstance().setSharedVariable(user);
                     Toast.makeText(MainActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
                     // Redirect to the user profile page or any other page after successful login
                     Intent intent = new Intent(getApplicationContext(), WelcomePage.class);
