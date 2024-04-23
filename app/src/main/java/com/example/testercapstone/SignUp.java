@@ -60,7 +60,7 @@ public class SignUp extends AppCompatActivity {
 
     private void writeUserDataToCSV(String userFirstName, String userLastName, String userDOB, String userEmail, String userSex, String userPhoneNumber, String userUsername, String userPassword) {
         // Format the user data as a CSV row
-        String userData = userFirstName + "," + userLastName + "," + userDOB + "," + userEmail + "," + userSex + "," + userPhoneNumber + "," + userUsername + "," + userPassword + "\n";
+        String userData = userUsername + "," + userPassword + "," + userFirstName + "," + userLastName + "," + userDOB + "," + userEmail + "," + userSex + "," + userPhoneNumber + "," + "\n";
 
         // Write the user data to the CSV file
         SignUpHelper.writeToCSV(this, userData);
