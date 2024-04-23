@@ -1,0 +1,111 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	
++++ b/app/build.gradle	
+@@ -42,4 +42,6 @@
+     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+     implementation 'com.google.android.material:material:1.0.0'
++    implementation 'com.opencsv:opencsv:5.5.2'
++
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/testercapstone/DBHelper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/testercapstone/DBHelper.java b/app/src/main/java/com/example/testercapstone/DBHelper.java
+--- a/app/src/main/java/com/example/testercapstone/DBHelper.java	
++++ b/app/src/main/java/com/example/testercapstone/DBHelper.java	
+@@ -24,6 +24,7 @@
+     @Override
+     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
+         MyDB.execSQL("drop Table if exists users");
++        onCreate(MyDB);
+ 
+     }
+ 
+Index: .idea/androidTestResultsUserPreferences.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/androidTestResultsUserPreferences.xml b/.idea/androidTestResultsUserPreferences.xml
+--- a/.idea/androidTestResultsUserPreferences.xml	
++++ b/.idea/androidTestResultsUserPreferences.xml	
+@@ -9,6 +9,7 @@
+               <option name="preferredColumnWidths">
+                 <map>
+                   <entry key="Duration" value="90" />
++                  <entry key="Pixel_2_API_28" value="120" />
+                   <entry key="Pixel_6_Pro_API_33" value="120" />
+                   <entry key="Tests" value="360" />
+                 </map>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	
++++ b/app/src/main/AndroidManifest.xml	
+@@ -2,6 +2,9 @@
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools">
+     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
++    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
++    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
++
+     <application
+         android:allowBackup="true"
+         android:dataExtractionRules="@xml/data_extraction_rules"
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	
++++ b/.idea/deploymentTargetDropDown.xml	
+@@ -1,23 +1,17 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="deploymentTargetDropDown">
+-    <value>
+-      <entry key="app">
+-        <State>
+-          <targetSelectedWithDropDown>
+-            <Target>
+-              <type value="QUICK_BOOT_TARGET" />
+-              <deviceKey>
+-                <Key>
+-                  <type value="VIRTUAL_DEVICE_PATH" />
+-                  <value value="C:\Users\dias_\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd" />
+-                </Key>
+-              </deviceKey>
+-            </Target>
+-          </targetSelectedWithDropDown>
+-          <timeTargetWasSelectedWithDropDown value="2024-04-03T18:33:22.021641800Z" />
+-        </State>
+-      </entry>
+-    </value>
++    <targetSelectedWithDropDown>
++      <Target>
++        <type value="QUICK_BOOT_TARGET" />
++        <deviceKey>
++          <Key>
++            <type value="VIRTUAL_DEVICE_PATH" />
++            <value value="C:\Users\Afreen Z\.android\avd\Pixel_6_Pro_API_33.avd" />
++          </Key>
++        </deviceKey>
++      </Target>
++    </targetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2024-04-22T20:52:39.042855300Z" />
+   </component>
+ </project>
+\ No newline at end of file

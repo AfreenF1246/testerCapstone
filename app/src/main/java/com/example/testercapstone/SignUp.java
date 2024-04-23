@@ -51,6 +51,11 @@ public class SignUp extends AppCompatActivity {
                 } else {
                     Toast.makeText(SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                     writeUserDataToCSV(userFirstName, userLastName, userDOB, userEmail, userSex, userPhoneNumber, userUsername, userPassword);
+
+                    String uniqueFileName = generateUniqueFileName(userUsername); // You need to implement this method
+                    String userData = userFirstName + "," + userLastName + "," + userDOB + "," + userEmail + "," + userSex + "," + userPhoneNumber + "," + userUsername + "," + userPassword + "\n";
+                    CSVFileManager.writeUserDataToCSV(getApplicationContext(), uniqueFileName, userData);
+
                     Intent intent = new Intent(getApplicationContext(), WelcomePage.class);
                     startActivity(intent);
                 }
@@ -64,5 +69,9 @@ public class SignUp extends AppCompatActivity {
 
         // Write the user data to the CSV file
         SignUpHelper.writeToCSV(this, userData);
+    }
+
+    private String generateUniqueFileName(String username) {
+        return username + "_data.csv"; // Example: "john_doe_data.csv"
     }
 }
