@@ -8,29 +8,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp extends AppCompatActivity {
 
     EditText firstName, lastName, DOB, email, sex, phoneNumber, username, password;
     Button Submit;
-    DBHelper DB;
+    //DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        firstName = (EditText) findViewById(R.id.firstName);
-        lastName = (EditText) findViewById(R.id.lastName);
-        DOB = (EditText) findViewById(R.id.DOB);
-        email = (EditText) findViewById(R.id.email);
-        sex = (EditText) findViewById(R.id.sex);
-        phoneNumber = (EditText) findViewById(R.id.phoneNumber);
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        Submit = (Button) findViewById(R.id.Submit);
+        //DB = new DBHelper(this);
 
-        DB = new DBHelper(this);
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
+        DOB = findViewById(R.id.DOB);
+        email = findViewById(R.id.email);
+        sex = findViewById(R.id.sex);
+        phoneNumber = findViewById(R.id.phoneNumber);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        Submit = findViewById(R.id.Submit);
+
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,28 +46,23 @@ public class SignUp extends AppCompatActivity {
                 String userUsername = username.getText().toString();
                 String userPassword = password.getText().toString();
 
-                if(userUsername.equals("")||userPassword.equals("")) {
+                if (userUsername.equals("") || userPassword.equals("")) {
                     Toast.makeText(SignUp.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                }else{
-                        Boolean checkuser = DB.checkusername(userUsername);
-                        if(checkuser==false){
-                            Boolean insert = DB.insertData(userFirstName, userLastName, userDOB, userEmail, userSex, userPhoneNumber,  userUsername, userPassword);
-                            if(insert==true){
-                                Toast.makeText(SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),WelcomePage.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(SignUp.this, "Registration failed", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else{
-                            Toast.makeText(SignUp.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                } else {
+                    Toast.makeText(SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                    writeUserDataToCSV(userFirstName, userLastName, userDOB, userEmail, userSex, userPhoneNumber, userUsername, userPassword);
+                    Intent intent = new Intent(getApplicationContext(), WelcomePage.class);
+                    startActivity(intent);
                 }
+            }
         });
-
-
     }
-    /////
+
+    private void writeUserDataToCSV(String userFirstName, String userLastName, String userDOB, String userEmail, String userSex, String userPhoneNumber, String userUsername, String userPassword) {
+        // Format the user data as a CSV row
+        String userData = userFirstName + "," + userLastName + "," + userDOB + "," + userEmail + "," + userSex + "," + userPhoneNumber + "," + userUsername + "," + userPassword + "\n";
+
+        // Write the user data to the CSV file
+        SignUpHelper.writeToCSV(this, userData);
+    }
 }
