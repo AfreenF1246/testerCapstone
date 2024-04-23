@@ -28,8 +28,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import android.content.Context;
+import android.widget.TextView;
 
 
 public class metrics extends AppCompatActivity {
@@ -42,8 +44,10 @@ public class metrics extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Context context;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metrics);
+        username = Username.getInstance().getSharedVariable();
 
         day = findViewById(R.id.day);
         goButton = findViewById(R.id.goButton);
@@ -95,7 +99,6 @@ public class metrics extends AppCompatActivity {
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                username = Username.getInstance().getSharedVariable();
                 String filename = username+"_data.csv";
 
                 if (day.getText().toString().equals("new")) {
@@ -105,51 +108,56 @@ public class metrics extends AppCompatActivity {
                 } else {
                     // ACCESS DATA BASE FOR THE SPECIFIC USER FOR THE SPECIFIC DAY
                     int dayVal = Integer.parseInt(day.getText().toString());
+
+                    ArrayList<Entry> entriesHeart = new ArrayList<>();
+                    ArrayList<Entry> entriesBlood = new ArrayList<>();
+
                     File file = new File(getFilesDir(), filename);
-                    String[] tokensHeart = new String[0];
-                    String[] tokensBlood = new String[0];
 
                     try {
                         FileInputStream fis = new FileInputStream(file);
                         InputStreamReader isr = new InputStreamReader(fis);
                         BufferedReader br = new BufferedReader(isr);
+
+                        String line;
                         String heartRate;
                         String bloodOxy;
-                        for (int i = 0; i < (dayVal*2)+1; i++) {
-                            br.readLine();
+                        for (int i = 1; i < (dayVal*2); i++) {
+                            line = br.readLine();
                         }
 
                         heartRate = br.readLine();
-                        bloodOxy = br.readLine();
 
                         if (heartRate != null) {
-                            tokensHeart = heartRate.split(",");
+                            String[] tokensHeart = heartRate.split(",");
+
+                            int point = 0;
+
+                            for (String value : tokensHeart){
+                                int valueInt = Integer.parseInt(value);
+                                entriesHeart.add(new Entry(point, valueInt));
+                                point++;
+                            }
                         }
+
+                        bloodOxy = br.readLine();
                         if (bloodOxy != null) {
-                            tokensBlood = bloodOxy.split(",");
+                            String[] tokensBlood = bloodOxy.split(",");
+                            int point = 0;
+                            for (String value : tokensBlood){
+                                int valueInt = Integer.parseInt(value);
+                                entriesBlood.add(new Entry(point, valueInt));
+                                point++;
+                            }
                         }
+
                         br.close();
                         isr.close();
                         fis.close();
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
-
-                    ArrayList<Entry> entriesHeart = new ArrayList<>();
-                    ArrayList<Entry> entriesBlood = new ArrayList<>();
-
-                    int point = 0;
-                    for (String value : tokensHeart){
-                        int valueInt = Integer.parseInt(value);
-                        entriesHeart.add(new Entry(point, valueInt));
-                        point++;
-                    }
-
-                    point = 0;
-                    for (String value : tokensBlood){
-                        int valueInt = Integer.parseInt(value);
-                        entriesBlood.add(new Entry(point, valueInt));
-                        point++;
                     }
 
 
@@ -159,13 +167,28 @@ public class metrics extends AppCompatActivity {
                     LineDataSet dataSetBlood = new LineDataSet(entriesBlood, "Label");
                     LineData lineDataBlood = new LineData(dataSetBlood);
 
-                    bloodOxygenGraph.setData(lineDataHeart);
+                    bloodOxygenGraph.setData(lineDataBlood);
                     bloodOxygenGraph.invalidate();
 
-                    heartRateGraph.setData(lineDataBlood);
+                    heartRateGraph.setData(lineDataHeart);
                     heartRateGraph.invalidate();
                 }
             }
         });
     }
+
+    private void writeUserDataToCSV(String username) {
+        List<String> userDataList = new ArrayList<>();
+
+        userDataList.add("69,75,70,73,75,75,74,69");
+        userDataList.add("0.9,0.99,0.98,0.96,0.95");
+        userDataList.add("75,74,74,71,73,75,72,73,74");
+        userDataList.add("0.92,0.93,0.94,0.92,0.92,0.90,0.95,0.94");
+        userDataList.add("75,75,73,79,70");
+        userDataList.add("0.90,0.94,0.92,0.96,0.97");
+
+        String filename = username;
+       // SignUpHelper.writeToCSV(this, filename, userDataList);
+    }
+
 }
