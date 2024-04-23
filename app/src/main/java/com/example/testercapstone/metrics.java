@@ -20,7 +20,16 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
 
 
 public class metrics extends AppCompatActivity {
@@ -29,6 +38,7 @@ public class metrics extends AppCompatActivity {
 
     LineChart heartRateGraph;
     LineChart bloodOxygenGraph;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,25 +95,74 @@ public class metrics extends AppCompatActivity {
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                username = Username.getInstance().getSharedVariable();
+                String filename = username+"_data.csv";
+
                 if (day.getText().toString().equals("new")) {
                     // RECORD NEW DATA, GET STUFF FROM ARDUINO
                     startActivity(new Intent(getApplicationContext(),RecordingPage.class));
 
                 } else {
                     // ACCESS DATA BASE FOR THE SPECIFIC USER FOR THE SPECIFIC DAY
-                    ArrayList<Entry> entries = new ArrayList<>();
-                    entries.add(new Entry(0, 4));
-                    entries.add(new Entry(1, 8));
-                    entries.add(new Entry(2, 6));
-                    // Add more data points...
+                    int dayVal = Integer.parseInt(day.getText().toString());
+                    File file = new File(getFilesDir(), filename);
+                    String[] tokensHeart = new String[0];
+                    String[] tokensBlood = new String[0];
 
-                    LineDataSet dataSet = new LineDataSet(entries, "Label");
-                    LineData lineData = new LineData(dataSet);
+                    try {
+                        FileInputStream fis = new FileInputStream(file);
+                        InputStreamReader isr = new InputStreamReader(fis);
+                        BufferedReader br = new BufferedReader(isr);
+                        String heartRate;
+                        String bloodOxy;
+                        for (int i = 0; i < (dayVal*2)+1; i++) {
+                            br.readLine();
+                        }
 
-                    bloodOxygenGraph.setData(lineData);
+                        heartRate = br.readLine();
+                        bloodOxy = br.readLine();
+
+                        if (heartRate != null) {
+                            tokensHeart = heartRate.split(",");
+                        }
+                        if (bloodOxy != null) {
+                            tokensBlood = bloodOxy.split(",");
+                        }
+                        br.close();
+                        isr.close();
+                        fis.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    ArrayList<Entry> entriesHeart = new ArrayList<>();
+                    ArrayList<Entry> entriesBlood = new ArrayList<>();
+
+                    int point = 0;
+                    for (String value : tokensHeart){
+                        int valueInt = Integer.parseInt(value);
+                        entriesHeart.add(new Entry(point, valueInt));
+                        point++;
+                    }
+
+                    point = 0;
+                    for (String value : tokensBlood){
+                        int valueInt = Integer.parseInt(value);
+                        entriesBlood.add(new Entry(point, valueInt));
+                        point++;
+                    }
+
+
+                    LineDataSet dataSetHeart = new LineDataSet(entriesHeart, "Label");
+                    LineData lineDataHeart = new LineData(dataSetHeart);
+
+                    LineDataSet dataSetBlood = new LineDataSet(entriesBlood, "Label");
+                    LineData lineDataBlood = new LineData(dataSetBlood);
+
+                    bloodOxygenGraph.setData(lineDataHeart);
                     bloodOxygenGraph.invalidate();
 
-                    heartRateGraph.setData(lineData);
+                    heartRateGraph.setData(lineDataBlood);
                     heartRateGraph.invalidate();
                 }
             }
