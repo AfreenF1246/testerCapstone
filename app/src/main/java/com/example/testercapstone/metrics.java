@@ -99,8 +99,8 @@ public class metrics extends AppCompatActivity {
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //String filename = username+"_data.csv";
                 String filename = username+"_data.csv";
-
                 if (day.getText().toString().equals("new")) {
                     // RECORD NEW DATA, GET STUFF FROM ARDUINO
                     startActivity(new Intent(getApplicationContext(),RecordingPage.class));
@@ -138,7 +138,9 @@ public class metrics extends AppCompatActivity {
                                 entriesHeart.add(new Entry(point, valueInt));
                                 point++;
                             }
+
                         }
+
 
                         bloodOxy = br.readLine();
                         if (bloodOxy != null) {
@@ -159,6 +161,28 @@ public class metrics extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+                    entriesHeart.add(new Entry(1, 74));
+                    entriesHeart.add(new Entry(2, 75));
+                    entriesHeart.add(new Entry(3, 79));
+                    entriesHeart.add(new Entry(4, 77));
+                    entriesHeart.add(new Entry(5, 69));
+                    entriesHeart.add(new Entry(6, 75));
+                    entriesHeart.add(new Entry(7, 74));
+                    entriesHeart.add(new Entry(8, 74));
+
+
+                    entriesBlood.add(new Entry(1, (float)0.94));
+                    entriesBlood.add(new Entry(2, (float)0.92));
+                    entriesBlood.add(new Entry(3, (float)0.98));
+                    entriesBlood.add(new Entry(4, (float)0.94));
+                    entriesBlood.add(new Entry(5, (float)0.93));
+                    entriesBlood.add(new Entry(6, (float)0.91));
+                    entriesBlood.add(new Entry(7, (float)0.95));
+                    entriesBlood.add(new Entry(8, (float)0.94));
+
+
+
 
 
                     LineDataSet dataSetHeart = new LineDataSet(entriesHeart, "Label");
